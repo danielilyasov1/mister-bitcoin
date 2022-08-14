@@ -17,12 +17,19 @@ console.log('tradeVolume',tradeVolume.values)
 async function getTradeVolume() {
     //x*1000
     return await tradeVolume.values
+    // const res = await axios.get(`https://www.blockchain.com/charts/trade-volume`)
+    // return res.data
 }
 async function getAvgBlockSize() {
     return await avgBlockSize.values
+    // const res = await axios.get(`https://www.blockchain.com/charts/avg-block-size`)
+    // return res.data
 }
 async function getMarketPrice() {
+    console.log('marketPrice.values',marketPrice.values)
     return await marketPrice.values
+    // const res = await axios.get(`https://www.blockchain.com/charts/market-price`)
+    // return res.data
 }
 
 
