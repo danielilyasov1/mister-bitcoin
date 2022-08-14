@@ -14,13 +14,21 @@ export default class HomePage extends Component {
   }
 
   async loadUser(){
+    try {
     const user = await userService.getUser()
     this.setState({user})
+    } catch (err) {
+      console.log('err:', err)
+    }
   }
 
   async loadRate(){
+    try {
     const rate = await bitcoinService.getRate()
     this.setState({rate})
+    } catch (err) {
+      console.log('err:', err)
+    }
   }
 
   render() {
@@ -28,9 +36,9 @@ export default class HomePage extends Component {
     if(!user) return <h1>loading..</h1>
     return (
       <>
-        <div>Name: {user.name}</div>
-        <div>Coins: {user.coins}</div>
-        <div>Current Bitcoin rate: {rate}</div>
+        <h2>Hello {user.name}!</h2>
+        <h4>💰 Coins: {user.coins}</h4>
+        <div>BTC: {rate}</div>
       </>
     )
   }
