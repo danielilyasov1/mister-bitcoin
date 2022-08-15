@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {contactService} from '../services/contactService'
 import {ContactFilter} from '../cmps/ContactFilter.jsx'
 import {ContactList} from '../cmps/ContactList.jsx'
-import {DetailsPage} from '../pages/DetailsPage.jsx'
+// import {DetailsPage} from '../pages/DetailsPage.jsx'
 
 
 export default class ContactPage extends Component {
     state = {
         contacts: null,
-        selectedContectId: null,
         filterBy: null,
     }
 
@@ -25,8 +25,9 @@ export default class ContactPage extends Component {
         }
     }
 
-    onSelectContactId = (contactId) => {
-        this.setState({ selectedContectId: contactId })
+    onRemoveContact = async (contactId) => {
+        await contactService.deleteContact(contactId)
+        this.loadContacts()
     }
 
     onChangeFilter = (filterBy) => {
@@ -34,17 +35,13 @@ export default class ContactPage extends Component {
     }
 
     render() {
-        const { contacts, selectedContactId } = this.state
+        const { contacts } = this.state
         if (!contacts) return <div>Loading...</div>
         return (
             <div className='contact-app'>
-                {selectedContactId ?
-                    <DetailsPage onBack={() => this.onSelectContactId(null)} contactId={selectedContactId} /> :
-                    <>
-                        <ContactFilter onChangeFilter={this.onChangeFilter} />
-                        <ContactList onRemoveContact={this.onRemoveContact} onSelectContactId={this.onSelectContactId} contacts={contacts} />
-                    </>
-                }
+                <ContactFilter onChangeFilter={this.onChangeFilter} />
+                <Link to="/contact/edit/">Add Contact</Link>
+                <ContactList onRemoveContact={this.onRemoveContact} contacts={contacts} />
             </div>
         )
     }

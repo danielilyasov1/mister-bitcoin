@@ -2,24 +2,23 @@ import React, { Component } from 'react'
 
 export class ContactFilter extends Component {
   state = {
-    name:'',
-    phone:'',
+    term:'',
+
   }
 
   handleChange = ({ target }) => {
     const field = target.name
-    const value = target.type === 'number' ? (+target.value || '') : target.value
+    const value = target.value 
     this.setState({ [field]: value }, () => {
         this.props.onChangeFilter({ ...this.state })
     })
   }
 
   render() {
-    const {name, phone} = this.state
+    const {term} = this.state
     return (
       <form className='filter'>
-          <input value={name} placeholder="Search contact by name..." onChange={this.handleChange} type="text" name="name" id="name" />   
-          <input value={phone} placeholder="Search contact by phone..." onChange={this.handleChange} type="number" name="phone" id="phone" />
+          <input value={term} placeholder="Search contact by name..." onChange={this.handleChange} type="text" name="term"/>   
       </form>
     )
   }
