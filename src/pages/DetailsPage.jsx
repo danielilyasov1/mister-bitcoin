@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import userImg from '../assets/img/user.png'
 import { contactService } from '../services/contactService'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+// import { MovesList } from '../cmps/MoveList.jsx'
+
 export class DetailsPage extends Component {
 
     state = {
@@ -30,7 +32,9 @@ export class DetailsPage extends Component {
 
                 <button onClick={this.onBack}>Back</button>
                 <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
+                {/* <button onClick={this.onRemoveContact(contact._id)}>Delete</button> */}
 
+                {/* <MovesList title={'Your Moves:'} moves={moves} /> */}
             </div>
         )
     }

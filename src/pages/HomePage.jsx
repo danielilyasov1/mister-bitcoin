@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import {userService} from '../services/userService.js'
 import {bitcoinService} from '../services/bitcoinService.js'
+// import { MovesList } from '../cmps/MoveList.jsx'
+
 
 export default class HomePage extends Component {
   state ={
@@ -39,6 +41,7 @@ export default class HomePage extends Component {
         <h2>Hello {user.name}!</h2>
         <h4>💰 Coins: {user.coins}</h4>
         <div>BTC: {rate}</div>
+        {/* <MovesList title={'Last Moves:'} moves={moves} /> */}
       </>
     )
   }

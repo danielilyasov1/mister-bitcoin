@@ -27,6 +27,13 @@ export class ContactEditPage extends Component {
         this.props.history.push('/')
     }
 
+    // onDeleteContact = async (ev) => {
+    //     ev.preventDefault()
+    //     const id = this.props.match.params.Id
+    //     await contactService.deleteContact(id)
+    //     this.props.history.push('/contact')
+    //   }
+
     inputRefFunc = (elInput) => {
         elInput && elInput.focus()
     }
@@ -51,6 +58,7 @@ export class ContactEditPage extends Component {
 
                     <button>Save</button>
                 </form>
+                {/* <button className='deleteBtn' onClick={this.onDeleteContact}>Delete</button> */}
             </section>
         )
     }
