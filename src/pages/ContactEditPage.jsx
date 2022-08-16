@@ -7,15 +7,13 @@ export class ContactEditPage extends Component {
         contact: null
     }
 
-        // inputRef = createRef()
 
     async componentDidMount() {
 
         const contactId = this.props.match.params.id
         const contact = contactId ? await contactService.getContactById(contactId) : contactService.getEmptyContact()
-        this.setState({ contact }, () => {
-            // this.inputRef.current.focus()
-        })    }
+        this.setState({ contact })
+    }
 
     handleChange = ({ target }) => {
         const field = target.name

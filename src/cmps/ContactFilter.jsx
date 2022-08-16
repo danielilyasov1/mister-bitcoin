@@ -18,7 +18,7 @@ export class ContactFilter extends Component {
     const {term} = this.state
     return (
       <form className='filter'>
-          <input value={term} placeholder="Search contact by name..." onChange={this.handleChange} type="text" name="term"/>   
+          <input value={term} placeholder="Search contact..." onChange={this.handleChange} type="text" name="term"/>   
       </form>
     )
   }

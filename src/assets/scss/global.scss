@@ -1,16 +1,16 @@
 // Externals
 
 // // Setup
-// @import "setup/variables";
-// @import "setup/functions";
-// @import "setup/mixins";
+@import "setup/_variables.scss";
+@import "setup/_functions.scss";
+@import "setup/_mixins.scss";
 
 // // Basics
 // @import "basics/typography";
 // @import "basics/base";
-// @import "basics/helpers";
-// @import "basics/layout";
-// @import "basics/modals";
+@import "basics/_helpers.scss";
+@import "basics/_layout.scss";
+@import "basics/_modals.scss";
 // @import "basics/animations";
 
 // // Pages
@@ -20,21 +20,3 @@
 // @import "cmps/robot-preview";
 // @import "cmps/robot-filter";
 
-// .main-app {
-//     min-height: 100vh;
-//     display: flex;
-//     flex-direction: column;
-//     .app-header {
-        
-//         background-color: #e91e63;
-//     }
-
-//     main {
-//         flex-grow: 1;
-//     }
-
-//     > footer {
-//         background-color: #111;
-//         color: white;
-//     }
-// }
