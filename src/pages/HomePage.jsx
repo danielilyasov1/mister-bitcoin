@@ -15,9 +15,11 @@ export default class HomePage extends Component {
     this.loadRate()
   }
 
-  async loadUser(){
+   loadUser(){
     try {
-    const user = await userService.getUser()
+    const user =  userService.getLoggedInUser()
+    console.log(user);
+    if(!user) this.props.history.push('/signup')
     this.setState({user})
     } catch (err) {
       console.log('err:', err)

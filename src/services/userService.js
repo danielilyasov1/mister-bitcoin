@@ -1,47 +1,37 @@
+import { utilService } from './utilService.js'
+
 export const userService = {
-    getUser,
-    signup,
-    addMove,
+  getLoggedInUser,
+  signup,
+  addMove,
 }
 
-var user = [
-    {
-        name: "Danielle Ilyasov",
-        coins: 1000,
-        moves:[]
-    }
-]
+var loggedUser
 
-async function getUser() {
-    return await user   
+const users = []
+
+function getLoggedInUser() {
+  return loggedUser
 }
 
 function signup(name) {
-    const newUser = {
-        _id: _makeId,
-        name,
-        coins: 100,
-        moves:[]
-    }
-    return user.push(newUser)
-}
-
-function addMove(contact,amount){
-    const move = {
-        toId: contact._id,
-        to: contact.name,
-        at: Date.now(),
-        amount,
-    }
-    user[0].moves.unshift(move)
-}
-
-function _makeId(length = 5) {
-    var txt = ""
-    var possible =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789"
-    for (var i = 0; i < length; i++) {
-      txt += possible.charAt(Math.floor(Math.random() * possible.length))
-    }
-    return txt
+  const newUser = {
+    _id: utilService.makeId(),
+    name,
+    coins: 100,
+    moves: [],
   }
+  users.push(newUser)
+  loggedUser = newUser
+  return loggedUser
+}
+
+function addMove(contact, amount) {
+  const move = {
+    toId: contact._id,
+    to: contact.name,
+    at: Date.now(),
+    amount,
+  }
+  loggedUser.moves.unshift(move)
+}

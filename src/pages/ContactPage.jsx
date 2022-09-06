@@ -25,10 +25,6 @@ export default class ContactPage extends Component {
         }
     }
 
-    onRemoveContact = async (contactId) => {
-        await contactService.deleteContact(contactId)
-        this.loadContacts()
-    }
 
     onChangeFilter = (filterBy) => {
         this.setState({ filterBy }, this.loadContacts)

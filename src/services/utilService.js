@@ -1,3 +1,6 @@
+export const utilService = {
+    makeId
+}
 
 export function makeId(length = 5) {
     var text = "";
